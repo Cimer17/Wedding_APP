@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
+    "@types/node": "^22.15.3",
     "@types/react-input-mask": "^3.0.6",
     "autoprefixer": "^10.4.20",
     "dotenv": "^16.5.0",
