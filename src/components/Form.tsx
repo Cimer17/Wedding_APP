@@ -45,7 +45,7 @@ function Form(){
             const dataToSend = prepareDataForSubmission();
 
             await new Promise((resolve) => setTimeout(resolve, 1000));
-            await axios.post(`$/api/users/`,
+            await axios.post(`/api/users/`,
                 dataToSend,
                 {
                     headers: {
