@@ -45,7 +45,7 @@ function Form(){
             const dataToSend = prepareDataForSubmission();
 
             await new Promise((resolve) => setTimeout(resolve, 1000));
-            await axios.post(`${process.env.REACT_APP_API_URL}` + 'users/',
+            await axios.post(`${process.env.REACT_APP_API_URL}users/`,
                 dataToSend,
                 {
                     headers: {
