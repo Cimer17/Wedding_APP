@@ -13,6 +13,10 @@ RUN npm install
 # Копируем все остальные файлы в контейнер
 COPY . ./
 
+# Добавляем переменную окружения
+ARG REACT_APP_API_URL
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
+
 # Собираем фронтенд для продакшн-среды
 RUN npm run build
 
