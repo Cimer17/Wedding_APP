@@ -26,8 +26,5 @@ FROM nginx:alpine
 # Копируем собранный фронтенд из предыдущего этапа в каталог для статических файлов Nginx
 COPY --from=build /app/build /usr/share/nginx/html
 
-# Экспонируем порт 80 для сервера
-EXPOSE 80
-
 # Запускаем nginx для обслуживания фронтенда
 CMD ["nginx", "-g", "daemon off;"]

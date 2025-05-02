@@ -46,7 +46,7 @@ function Form(){
 
             await new Promise((resolve) => setTimeout(resolve, 1000));
             const baseUrl = process.env.REACT_APP_API_URL?.replace('http://', 'https://') || '';
-            await axios.post(`${baseUrl}api/users/`,
+            await axios.post(`${baseUrl}api/users`,
                 dataToSend,
                 {
                     headers: {
