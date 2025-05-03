@@ -24,6 +24,11 @@ tailwindJSLOCAL.textContent = `
       ],
       theme: {
         extend: {
+          fontFamily: {
+            foglihten: ['FoglihtenNo06', 'sans-serif'],
+            zen: ['"Zen Antique Soft"', 'sans-serif'],
+            sans: ['Arial', 'sans-serif'],
+          },
           colors: {
             'custom-green': {
               100: '#B9C49C',
@@ -33,6 +38,9 @@ tailwindJSLOCAL.textContent = `
               900: '#D6A26E',
             },
             'custom-black-green': '#75804E'
+          },
+          boxShadow: {
+            'custom-shadow': '15px 15px 6px rgba(0, 0, 0, 0.25)',
           },
           keyframes: {
             fadeInScale: {

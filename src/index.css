@@ -1,7 +1,23 @@
+/* FoglihtenNo06 */
+@font-face {
+  font-family: 'FoglihtenNo06';
+  src: url('/public/fonts/FoglihtenNo06/FoglihtenNo06_076.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Zen Antique Soft */
+@font-face {
+  font-family: 'Zen Antique Soft';
+  src: url('/public/fonts/ZenAntiqueSoft/ZenAntiqueSoft-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Arial',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
