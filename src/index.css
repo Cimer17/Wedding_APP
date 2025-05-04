@@ -30,3 +30,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.special-style-icon{
+  padding: 0.8rem;
+}

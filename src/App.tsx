@@ -1,5 +1,6 @@
 import Form from './components/Form';
 import MapSection from "./components/MapSection";
+import Details from "./components/Details";
 
 function App() {
 
@@ -97,7 +98,13 @@ function App() {
           </nav>
         </div>
         <section className="flex flex-col w-full h-full items-center p-4 bg-custom-green-100">
-
+          <div className="flex max-w-md w-full justify-center items-center">
+            <p className="text-center text-xl text-black font-zen leading-relaxed">
+              Мы понимаем, что после получения приглашения у вас могут возникнуть вопросы.
+              Не стесняйтесь обращаться к нам за деталями — мы с радостью поможем! 💍
+            </p>
+          </div>
+          <Details />
         </section>
         <section className="flex w-full h-full justify-center items-center px-4">
           <h1 className="text-3xl font-foglihten text-black text-center">
