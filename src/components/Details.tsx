@@ -11,7 +11,7 @@ export default function Details()  {
                   return (
                     <div
                         key={descriptions.text1}
-                        className="flex w-full h-full max-h-36 items-center justify-center gap-6"
+                        className="flex w-full h-full max-h-72 items-center justify-center gap-6 md:max-h-36"
                     >
                         {/*${descriptions.specialAnimation ? "animate-slow-bounce hover:animate-none" : ""}*/}
                         <div className={`hidden h-24 w-24 rounded-full
@@ -40,19 +40,19 @@ export default function Details()  {
                   );
               })
           }
-          <div className="flex w-full items-center justify-center mt-8 px-6 mx-auto md:w-2/3 md:px-4">
-              <a
-                  href="https://t.me/your_channel_link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full md:w-5/12 text-white uppercase bg-custom-green-700 text-center hover:bg-custom-black-green
-                             focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 transition duration-300
-                             ease-in-out active:text-black active:bg-transparent border-custom-green-700
-                             active:border-custom-green-700 border-2 hover:border-custom-black-green"
-              >
-                  Чат гостей
-              </a>
-          </div>
+          {/*<div className="flex w-full items-center justify-center mt-8 px-6 mx-auto md:w-2/3 md:px-4">*/}
+          {/*    <a*/}
+          {/*        href="https://t.me/your_channel_link"*/}
+          {/*        target="_blank"*/}
+          {/*        rel="noopener noreferrer"*/}
+          {/*        className="w-full md:w-5/12 text-white uppercase bg-custom-green-700 text-center hover:bg-custom-black-green*/}
+          {/*                   focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 transition duration-300*/}
+          {/*                   ease-in-out active:text-black active:bg-transparent border-custom-green-700*/}
+          {/*                   active:border-custom-green-700 border-2 hover:border-custom-black-green"*/}
+          {/*    >*/}
+          {/*        Чат гостей*/}
+          {/*    </a>*/}
+          {/*</div>*/}
       </div>
     );
 }
