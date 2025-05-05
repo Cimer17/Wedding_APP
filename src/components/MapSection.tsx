@@ -39,11 +39,11 @@ const MapSection = () => {
 
             {/* Изображение здания */}
             <div
-                className="group flex w-full h-full max-w-[37.5rem] max-h-[25rem] mb-8 shadow-custom-shadow mx-auto md:w-2/3 transition-all duration-300 ease-in-out hover:translate-y-1 hover:shadow-none">
+                className="group flex w-full h-full max-w-[46.875rem] max-h-[31.25rem] mb-8 shadow-custom-shadow mx-auto
+                           md:w-2/3 transition-all duration-300 ease-in-out hover:translate-y-1 hover:shadow-none">
                 <img
                     src="/image/mesto-1.webp"
                     alt="Здание"
-                    className="w-full h-full object-cover"
                 />
             </div>
 

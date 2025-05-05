@@ -46,10 +46,15 @@ tailwindJSLOCAL.textContent = `
             fadeInScale: {
               '0%': { opacity: '0', transform: 'scale(0.95)' },
               '100%': { opacity: '1', transform: 'scale(1)' },
+            },
+            'custom-bounce': {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
             }
           },
           animation: {
             fadeInScale: 'fadeInScale 0.3s ease-out forwards',
+            'slow-bounce': 'custom-bounce 2s infinite',
           }
         }
       },

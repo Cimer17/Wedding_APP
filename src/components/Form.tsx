@@ -110,14 +110,14 @@ function Form(){
         if (!isNameFilled) {
             setAlertMessage({ message: "Пожалуйста, введите имя и фамилию",
                 type: "info" });
-            setTimeout(() => setAlertMessage(null), 2000);
+            setTimeout(() => setAlertMessage(null), 4000);
             return false;
         }
 
         if (!isPhoneFilled) {
             setAlertMessage({ message: "Пожалуйста, введите свой номер телефона",
                 type: "info" });
-            setTimeout(() => setAlertMessage(null), 2000);
+            setTimeout(() => setAlertMessage(null), 4000);
             return false;
         }
 
@@ -133,7 +133,7 @@ function Form(){
         try {
             const dataToSend = prepareDataForSubmission();
 
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            await new Promise((resolve) => setTimeout(resolve, 4000));
             const baseUrl = process.env.REACT_APP_API_URL?.replace('http://', 'https://') || '';
             await axios.post(`${baseUrl}api/users`,
                 dataToSend,
