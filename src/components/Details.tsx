@@ -14,27 +14,28 @@ export default function Details()  {
                         className="flex w-full h-full max-h-72 items-center justify-center gap-6 md:max-h-36"
                     >
                         {/*${descriptions.specialAnimation ? "animate-slow-bounce hover:animate-none" : ""}*/}
-                        <div className={`hidden h-24 w-24 rounded-full
-                                        bg-white shadow-lg md:flex ${
-                                        descriptions.specialIcon ? "special-style-icon" : ""
-                                        }`}
-                        >
-                            <img
-                                src={descriptions.src}
-                                alt={descriptions.text1}
-                                className="object-cover"
-                            />
-                        </div>
-                        <div
-                            className="flex flex-col w-full h-full max-w-3xl bg-white
-                                       py-5 px-7 rounded-3xl shadow-lg"
-                        >
-                            <h2 className="text-xl text-black font-foglihten mb-2">
-                                {descriptions.text1}
-                            </h2>
-                            <p className="text-black font-sans">
-                                {descriptions.text2}
-                            </p>
+                        <div className="flex bg-white shadow-lg rounded-3xl w-full h-full max-w-5xl">
+                            <div className={`hidden h-24 w-24 md:flex ${
+                                            descriptions.specialIcon ? "special-style-icon" : ""
+                                            }`}
+                            >
+                                <img
+                                    src={descriptions.src}
+                                    alt={descriptions.text1}
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div
+                                className="flex flex-col w-full h-full
+                                           py-5 px-7"
+                            >
+                                <h2 className="text-xl text-black font-foglihten mb-2">
+                                    {descriptions.text1}
+                                </h2>
+                                <p className="text-black font-sans">
+                                    {descriptions.text2}
+                                </p>
+                            </div>
                         </div>
                     </div>
                   );
