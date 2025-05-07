@@ -29,6 +29,13 @@ function Form(){
     });
     const [areRequiredFieldsFilled, setAreRequiredFieldsFilled] = useState(false);
 
+    const alertMassagePromise = async (massages: string, types: AlertType): Promise<void> => {
+        await new Promise((resolve) => setTimeout(resolve, 100));
+
+        setAlertMessage({message: massages, type: types});
+        setTimeout(() => setAlertMessage(null), 5000);
+    };
+
     useEffect(() => {
         const isNameFilled = formData.fullName.trim() !== '';
         const cleanedPhone = formData.phone.replace(/\D/g, '');
@@ -40,9 +47,8 @@ function Form(){
     useEffect(() => {
         if (formData.presence && !areRequiredFieldsFilled) {
             setFormData((prev) => ({ ...prev, presence: false }));
-            setAlertMessage({ message: "Поля 'Имя и Телефон' обязательны для подтверждения присутствия",
-                type: "warning" });
-            setTimeout(() => setAlertMessage(null), 4000);
+            alertMassagePromise("Поля 'Имя и Телефон' обязательны для подтверждения присутствия",
+                "warning" );
         }
     }, [formData.presence, areRequiredFieldsFilled]);
 
@@ -77,13 +83,12 @@ function Form(){
     };
 
     // Обработчик кнопки подтверждение присутствия
-    const handlePresenceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handlePresenceChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const isChecked = e.target.checked;
 
         if (isChecked && !areRequiredFieldsFilled) {
-            setAlertMessage({ message: "Заполните обязательные поля: имя и телефон",
-                type: "warning" });
-            setTimeout(() => setAlertMessage(null), 4000);
+            alertMassagePromise("Заполните обязательные поля: имя и телефон",
+                "warning");
             return;
         }
 
@@ -102,22 +107,36 @@ function Form(){
         setFormData({ ...formData, guests: processedValues });
     }
 
+    // Метод запроса на проверку номера
+    const checkPhoneNumber = async (phone: string): Promise<boolean> => {
+        try {
+            const cleanedPhone = phone.replace(/\D/g, '');
+            const baseUrl = process.env.REACT_APP_API_URL?.replace('http://', 'https://') || '';
+            const response = await axios.get(
+                `${baseUrl}/api/users/check/${cleanedPhone}`
+            );
+            return response.data.message === 'No';
+        } catch (error) {
+            alertMassagePromise('Не удалось проверить ваши данные', 'error');
+            return false;
+        }
+    };
+
+    // Проверка заполнения обязательных полей
     const validateForm = () => {
         const isNameFilled = formData.fullName.trim() !== '';
         const cleanedPhone = formData.phone.replace(/\D/g, '');
         const isPhoneFilled = cleanedPhone.length >= 10;
 
         if (!isNameFilled) {
-            setAlertMessage({ message: "Пожалуйста, введите имя и фамилию",
-                type: "info" });
-            setTimeout(() => setAlertMessage(null), 4000);
+            alertMassagePromise("Пожалуйста, введите имя и фамилию",
+                "info");
             return false;
         }
 
         if (!isPhoneFilled) {
-            setAlertMessage({ message: "Пожалуйста, введите свой номер телефона",
-                type: "info" });
-            setTimeout(() => setAlertMessage(null), 4000);
+            alertMassagePromise("Пожалуйста, введите свой номер телефона",
+                "info");
             return false;
         }
 
@@ -128,12 +147,18 @@ function Form(){
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (!validateForm()) return;
+        if (!validateForm())
+            return;
 
         try {
-            const dataToSend = prepareDataForSubmission();
+            const isAvailable = await checkPhoneNumber(formData.phone);
 
-            await new Promise((resolve) => setTimeout(resolve, 4000));
+            if (!isAvailable) {
+                alertMassagePromise('Гость с такими данными уже есть в списке', 'error');
+                return;
+            }
+
+            const dataToSend = prepareDataForSubmission();
             const baseUrl = process.env.REACT_APP_API_URL?.replace('http://', 'https://') || '';
             await axios.post(`${baseUrl}api/users`,
                 dataToSend,
@@ -144,18 +169,15 @@ function Form(){
                     }
                 });
 
-            setAlertMessage({ message: "Форма успешно отправлена!", type: "success" });
-            setTimeout(() => setAlertMessage(null), 4000);
+            alertMassagePromise("Форма успешно отправлена!", "success");
         } catch (error) {
             if (isAxiosError(error)) {
-                setAlertMessage({
-                    message: `Ошибка: ${error.response?.data.message || 'Неизвестная ошибка'}`,
-                    type: "error"
-                });
-                setTimeout(() => setAlertMessage(null), 4000);
+                alertMassagePromise(
+                    `Ошибка: ${error.response?.data.message || 'Неизвестная ошибка'}`,
+                    "error"
+                );
             } else {
-                setAlertMessage({ message: "Произошла ошибка при отправке формы", type: "error" });
-                setTimeout(() => setAlertMessage(null), 4000);
+                alertMassagePromise("Произошла ошибка при отправке формы", "error");
             }
         }
     };

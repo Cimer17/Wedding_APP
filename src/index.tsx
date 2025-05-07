@@ -37,7 +37,13 @@ tailwindJSLOCAL.textContent = `
               700: '#7C8C52',
               900: '#D6A26E',
             },
-            'custom-black-green': '#75804E'
+            'custom-black-green': '#75804E',
+            'custom-dark-green': {
+              100: '#3F674A',
+              300: '#4D5240',
+              500: '#2E5A3E',
+              700: '#324209',
+            },
           },
           boxShadow: {
             'custom-shadow': '15px 15px 6px rgba(0, 0, 0, 0.25)',
