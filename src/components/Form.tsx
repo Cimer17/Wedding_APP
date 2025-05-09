@@ -28,7 +28,9 @@ function Form(){
         oath: false,
     });
     const [areRequiredFieldsFilled, setAreRequiredFieldsFilled] = useState(false);
+    const [isChecking, setIsChecking] = useState(false);
 
+    // Обертка с задержкой для отправки уведомлений
     const alertMassagePromise = async (massages: string, types: AlertType): Promise<void> => {
         await new Promise((resolve) => setTimeout(resolve, 100));
 
@@ -146,6 +148,7 @@ function Form(){
     // Обработчик для кнопки Отправить
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsChecking(false);
 
         if (!validateForm())
             return;
@@ -180,6 +183,8 @@ function Form(){
                 alertMassagePromise("Произошла ошибка при отправке формы", "error");
             }
         }
+
+        setIsChecking(true);
     };
 
   return(
@@ -405,13 +410,20 @@ function Form(){
                     <div className="flex items-center justify-center mt-8 px-6 md:px-4">
                         <button
                             type="submit"
-                            className="w-full md:w-5/12 text-white bg-custom-green-700 hover:bg-custom-black-green
+                            className="flex justify-center w-full md:w-5/12 text-white bg-custom-green-700 hover:bg-custom-black-green
                                      focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5
                                      transition duration-300 ease-in-out active:text-black active:bg-transparent
                                      border-custom-green-700 active:border-custom-green-700 border-2 active:border-2
                                      hover:border-custom-black-green"
+                            disabled={isChecking}
                         >
-                            Отправить
+                            {isChecking ? (
+                                <div
+                                    className="w-5 h-5 rounded-full border-4 border-t-transparent
+                                               border-l-transparent border-white animate-spin mr-2"
+                                    style={{ boxShadow: '0 0 20px rgba(255, 255, 255, 0.8)', opacity: 0.9 }}
+                                />
+                            ) : 'Отправить'}
                         </button>
                     </div>
                 </form>
