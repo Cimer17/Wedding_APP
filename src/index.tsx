@@ -24,6 +24,9 @@ tailwindJSLOCAL.textContent = `
       ],
       theme: {
         extend: {
+          minHeight: {
+            'custom-15': '15rem',
+          },
           fontFamily: {
             foglihten: ['FoglihtenNo06', 'sans-serif'],
             zen: ['"Zen Antique Soft"', 'sans-serif'],
