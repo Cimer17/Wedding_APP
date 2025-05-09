@@ -29,7 +29,9 @@ function App() {
       <>
         {showPreloader && <PreloaderHeart visible={loading} />}
         <main
-            className="h-full flex-1 w-full flex-col justify-center items-center antialiased md:subpixel-antialiased"
+            className={`transition-opacity duration-500 ${loading ? "opacity-0" : 
+                       "opacity-100 h-full flex-1 w-full flex-col justify-center " +
+                       "items-center antialiased md:subpixel-antialiased"}`}
         >
           <div
               className="fixed w-full h-16 flex justify-around items-center z-40 my-3.5"
@@ -51,7 +53,7 @@ function App() {
               />
             </div>
             <div className="max-w-3xl w-1/2 h-full min-h-[20rem] md:min-h-[27rem] bg-[url('/image/bg-list.webp')]
-                            bg-cover bg-right rotate-180 z-10 absolute top-0 right-0">
+                            bg-cover bg-right bg-no-repeat rotate-180 z-10 absolute top-0 right-0">
             </div>
           </section>
 
@@ -145,7 +147,7 @@ function App() {
             </div>
 
             <div className="max-w-3xl w-full min-h-[20rem] h-full bg-cover bg-center relative
-                            bg-[url('/image/bg-list.webp')] scale-x-[-1] z-0">
+                            bg-[url('/image/bg-list.webp')] bg-no-repeat scale-x-[-1] z-0">
             </div>
           </section>
 
