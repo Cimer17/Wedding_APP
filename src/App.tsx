@@ -546,7 +546,7 @@ function App() {
               </h1>
             </div>
             <div className="absolute flex justify-center items-end w-full h-full">
-              <div className="p-8 z-10">
+              <div className="p-8 z-20">
                 <a
                     href="https://vk.com/evgesha_studio?from=groups"
                     target="_blank"
