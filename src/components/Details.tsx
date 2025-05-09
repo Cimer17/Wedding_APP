@@ -1,17 +1,14 @@
-import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import { description } from "../data";
 
 export default function Details() {
-    useEffect(() => {
         AOS.init({
-            duration: 1000,        // Длительность анимации
+            duration: 800,        // Длительность анимации
             easing: "ease-in-out", // Тип анимации
             once: false,           // Анимация срабатывает один раз
         });
-    }, []);
 
     return (
         <div className="flex flex-col w-full justify-center items-center mx-auto my-8 px-4 space-y-6">

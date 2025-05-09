@@ -38,7 +38,7 @@ const Navbar = () => {
     }, [isMenuOpen]);
 
     return (
-        <nav className="w-full max-w-[36.25rem] relative flex justify-between items-center px-4 mx-3.5
+        <nav className="w-full max-w-[38.25rem] relative flex justify-between md:justify-center items-center px-4 mx-3.5
                         lg:px-6 py-2.5 bg-[#C9CFBB]/30 backdrop-blur-lg shadow-lg rounded-xl"
         >
             <a href="#date" className="flex md:hidden items-center space-x-3 rtl:space-x-reverse">
