@@ -71,17 +71,17 @@ tailwindJSLOCAL.textContent = `
 tailwindJSLOCAL.defer = true;
 document.head.appendChild(tailwindJSLOCAL);
 
-// Подключаем Flowbite CSS для дополнительных стилей
-const flowbiteCSS = document.createElement("link");
-flowbiteCSS.rel = "stylesheet";
-flowbiteCSS.href = "https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css";
-document.head.appendChild(flowbiteCSS);
-
 // Подключаем Flowbite JS для функционала (например, dropdowns, modals)
 const flowbiteScript = document.createElement("script");
 flowbiteScript.src = "https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js";
 flowbiteScript.defer = true;
 document.body.appendChild(flowbiteScript);
+
+// Подключаем Flowbite CSS для дополнительных стилей
+const flowbiteCSS = document.createElement("link");
+flowbiteCSS.rel = "stylesheet";
+flowbiteCSS.href = "https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css";
+document.head.appendChild(flowbiteCSS);
 
 // Рендерим React-приложение
 root.render(

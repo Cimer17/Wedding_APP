@@ -2,6 +2,8 @@ import Form from './components/Form';
 import MapSection from "./components/MapSection";
 import Details from "./components/Details";
 import WeddingTimeline from "./components/WeddingTimeline";
+import Navbar from "./components/Navbar";
+import CountdownTimer from "./components/CountdownTimer";
 
 function App() {
 
@@ -10,98 +12,28 @@ function App() {
       <main
           className="h-full flex-1 w-full flex-col justify-center items-center antialiased md:subpixel-antialiased"
       >
-
         <div
-            className="w-full h-16 flex justify-around items-center"
+            className="fixed w-full h-16 flex justify-around items-center z-50 my-3.5"
         >
-          <nav className="rounded-xl bg-[#C9CFBB] bg-opacity-30 backdrop-blur-lg shadow-lg px-4 lg:px-6 py-2.5">
-            <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-              <div className="flex items-center lg:order-2">
-                <button data-collapse-toggle="mobile-menu-2" type="button"
-                        className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg
-                                     lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2
-                                     focus:ring-gray-200" aria-controls="mobile-menu-2" aria-expanded="false"
-                >
-                  <span className="sr-only">Open main menu</span>
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                       xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                        fill-rule="evenodd"
-                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1
-                             1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                        clip-rule="evenodd">
-                    </path>
-                  </svg>
-                  <svg className="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                       xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414
-                                       1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1
-                                       0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd">
-                    </path>
-                  </svg>
-                </button>
-              </div>
-              <div className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
-                   id="mobile-menu-2">
-                <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                  <li>
-                    <a href="#date"
-                       className="block py-2 pr-4 pl-3 text-gray-700 rounded bg-primary-700 lg:bg-transparent
-                                  lg:text-primary-700 lg:p-0"
-                       aria-current="page"
-                    >
-                      Дата
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#program"
-                       className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50
-                                  lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                    >
-                      Программа
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#dresscode"
-                       className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50
-                  lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                    >
-                      Дресс-код
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#host"
-                       className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50
-                  lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                    >
-                      Ведущий
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#details"
-                       className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50
-                  lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                    >
-                      Детали
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#location"
-                       className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50
-                  lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                    >
-                      Место
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+          <Navbar />
         </div>
 
-        <section className="flex w-full h-full justify-center items-center px-4">
-
+        <section className="relative flex w-full h-full justify-between items-center">
+          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] md:min-h-[25rem] bg-cover bg-right bg-no-repeat
+                          bg-[url('/image/bg-list.webp')] scale-x-[-1] z-[-1] rotate-180">
+          </div>
+          <div
+              className="absolute justify-center py-16 pb-16 pt-32 flex w-full h-full z-10"
+          >
+            <img
+                src="/image/be.png"
+                alt="Elena&Vadim"
+                className="px-4 lg:px-6 py-2.5"
+            />
+          </div>
+          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] md:min-h-[27rem] bg-[url('/image/bg-list.webp')]
+                          bg-cover bg-right rotate-180 z-0 absolute top-0 right-0">
+          </div>
         </section>
 
         <section id="date" className="flex flex-col w-full h-full items-center p-4 bg-custom-green-100">
@@ -132,7 +64,7 @@ function App() {
           <div className="relative flex w-full h-full max-w-lg mx-auto">
             <div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[15%] w-3/5
-                           mx-auto p-4 rounded-xl border-2 border-custom-green-700 bg-custom-green-100"
+                           mx-auto p-4 rounded-xl border-2 border-custom-green-700 bg-custom-green-100 z-10"
             >
               <div className="text-center mb-4">
                 <h2 className="text-lg font-bold text-custom-green-700">Июль 2025</h2>
@@ -192,27 +124,14 @@ function App() {
           </div>
         </section>
 
-        <section className="flex w-full h-full justify-center items-center">
-          <div className="max-w-3xl w-full min-h-[20rem] h-full bg-[url('/image/bg-list.webp')]
-                          bg-cover bg-center">
+        <section className="flex w-full h-full justify-between items-center">
+          <div className="max-w-3xl w-full min-h-[23rem] h-full bg-cover bg-center relative
+                          bg-[url('/image/bg-list.webp')] bg-no-repeat -mt-12 z-0">
           </div>
-          <div className="max-w-3xl w-full min-h-[20rem] h-full bg-cover bg-center bg-no-repeat
-                          bg-[url('/image/bg-list.webp')] scale-x-[-1] z-[-1]">
+
+          <div className="max-w-3xl w-full min-h-[20rem] h-full bg-cover bg-center relative
+                          bg-[url('/image/bg-list.webp')] scale-x-[-1]">
           </div>
-          {/*<div className="max-w-3xl w-full min-h-[20rem] h-full]">*/}
-          {/*  <img*/}
-          {/*      src="/image/bg-list.webp"*/}
-          {/*      alt="bg"*/}
-          {/*      className="object-cover"*/}
-          {/*  />*/}
-          {/*</div>*/}
-          {/*<div className="max-w-3xl w-full min-h-[20rem] h-full">*/}
-          {/*  <img*/}
-          {/*      src="/image/bg-list.webp"*/}
-          {/*      alt="bg"*/}
-          {/*      className="object-cover"*/}
-          {/*  />*/}
-          {/*</div>*/}
         </section>
 
         <section
@@ -230,10 +149,20 @@ function App() {
           <WeddingTimeline />
         </section>
 
-        <section id="dresscode" className="flex w-full h-full justify-center items-center px-4">
-          <h1 className="text-3xl font-foglihten text-custom-dark-green-500 text-center">
+        <section
+            id="dresscode"
+            className="relative flex w-full h-full justify-between items-center"
+        >
+          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+                          bg-[url('/image/bg-list.webp')] scale-x-[-1] rotate-180">
+          </div>
+          <h1 className="absolute flex justify-center w-full h-full text-3xl font-foglihten
+                         text-custom-dark-green-500 items-center text-center">
             Дресс-код
           </h1>
+          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+                          bg-[url('/image/bg-list.webp')] rotate-180">
+          </div>
         </section>
 
         <section className="flex flex-col w-full h-full items-center p-4 bg-[#E5E6E1]">
@@ -247,23 +176,28 @@ function App() {
               </h2>
             </div>
 
-            <div className="flex justify-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-custom-green-100 shadow-lg"/>
-              <div className="w-16 h-16 rounded-full bg-custom-green-300 shadow-lg"/>
-              <div className="w-16 h-16 rounded-full bg-custom-green-500 shadow-lg"/>
-              <div className="w-16 h-16 rounded-full bg-custom-green-700 shadow-lg"/>
-              <div className="w-16 h-16 rounded-full bg-custom-green-900 shadow-lg"/>
+            <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex min-w-14 md:min-w-16 aspect-square rounded-full bg-custom-green-100 shadow-lg" />
+              <div className="flex min-w-14 md:min-w-16 aspect-square rounded-full bg-custom-green-300 shadow-lg" />
+              <div className="flex min-w-14 md:min-w-16 aspect-square rounded-full bg-custom-green-500 shadow-lg" />
+              <div className="flex min-w-14 md:min-w-16 aspect-square rounded-full bg-custom-green-700 shadow-lg" />
+              <div className="flex min-w-14 md:min-w-16 aspect-square rounded-full bg-custom-green-900 shadow-lg" />
             </div>
 
             <div className="sm:block md:hidden mt-12">
-              <div id="controls-carousel" className="relative w-full" data-carousel="static">
+              <div
+                  id="controls-carousel"
+                  className="relative w-full"
+                  data-carousel="slide"
+                  data-carousel-interval="3000"
+              >
 
-                <div className="relative h-[38rem] overflow-hidden rounded-lg md:h-96">
+                <div className="relative h-[34rem] overflow-hidden rounded-lg md:h-96">
 
                   <div className="duration-700 ease-in-out" data-carousel-item="active">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div
-                          className="w-full max-w-[25rem] max-h-[37.5rem]">
+                          className="w-full h-full max-w-[25rem] max-h-[37.5rem]">
                         <img
                             src="/image/arif.webp"
                             alt="Женское украшение"
@@ -276,7 +210,7 @@ function App() {
                   <div className="hidden duration-700 ease-in-out" data-carousel-item>
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div
-                          className="w-full max-w-[25rem] max-h-[31.25rem]">
+                          className="w-full h-full max-w-[25rem] max-h-[31.25rem]">
                         <img
                             src="/image/botinki.webp"
                             alt="Мужская обувь"
@@ -289,7 +223,7 @@ function App() {
                   <div className="hidden duration-700 ease-in-out" data-carousel-item>
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div
-                          className="w-full max-w-[25rem] max-h-[34.375rem]">
+                          className="w-full h-full max-w-[25rem] max-h-[34.375rem]">
                         <img
                             src="/image/kabluk.webp"
                             alt="Платье с туфлями"
@@ -302,7 +236,7 @@ function App() {
                   <div className="hidden duration-700 ease-in-out" data-carousel-item>
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div
-                          className="w-full max-w-[25rem] max-h-[37.5rem]">
+                          className="w-full h-full max-w-[25rem] max-h-[37.5rem]">
                         <img
                             src="/image/men.webp"
                             alt="Мужской костюм"
@@ -372,7 +306,7 @@ function App() {
               </div>
             </div>
 
-            <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
+            <div className="hidden md:grid grid-cols-1 md:grid-cols-4 justify-items-center gap-8 mt-12">
               <div
                   className="flex w-full h-full max-w-[25rem] max-h-[37.5rem] col-span-2
                              shadow-custom-shadow transition-all duration-300 ease-in-out
@@ -402,7 +336,7 @@ function App() {
                   <img
                       src="/image/kabluk.webp"
                       alt="Платье с туфлями"
-                      className="object-cover"
+                      className="object-cover w-full h-full"
                   />
                 </div>
               </div>
@@ -420,16 +354,26 @@ function App() {
           </div>
         </section>
 
-        <section id="host" className="flex w-full h-full justify-center items-center px-4">
-          <h1 className="text-3xl font-foglihten text-custom-dark-green-500 text-center">
+        <section
+            id="presenter"
+            className="relative flex w-full h-full justify-between items-center"
+        >
+          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+                          bg-[url('/image/bg-list.webp')]">
+          </div>
+          <h1 className="absolute flex justify-center w-full h-full text-3xl font-foglihten
+                         text-custom-dark-green-500 items-center text-center">
             Ведущий<br/>
             Мероприятия
           </h1>
+          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+                          bg-[url('/image/bg-list.webp')] scale-x-[-1]">
+          </div>
         </section>
 
         <section className="flex w-full h-full justify-center items-center bg-[#E5E6E1]">
           <div className="flex w-full h-full max-w-screen-lg">
-            <div className="flex w-1/12 h-full bg-custom-green-100"></div>
+            <div className="flex w-1/12 h-full bg-custom-green-100 self-stretch"></div>
             <div className="flex flex-col w-full mx-auto h-full p-4 md:flex-row items-center
                             gap-8 md:gap-1 my-10"
             >
@@ -456,16 +400,16 @@ function App() {
                   Спасибо, что делаете праздник особенным! 💫
                 </p>
                 <div className="flex">
-                  <div className="flex items-center mt-4">
+                  <div className="w-8 h-8 mr-4 flex items-center mt-4 bg-[#828658] rounded-md p-1">
                     <a
                         href="https://t.me/dmitriyglazkov"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-8 h-8 mr-4"
                     >
                       <img
-                          src="/image/telegram.png"
+                          src="/image/telegramIcon.png"
                           alt="telegram"
+                          className="object-cover"
                       />
                     </a>
                   </div>
@@ -485,7 +429,7 @@ function App() {
               <div className="flex w-full max-w-[21.875rem]">
                 <div className="flex h-full max-h-[31.25rem] shadow-custom-shadow">
                   <img
-                      src="/image/leading.webp"
+                      src="/image/host.webp"
                       alt="Дмитрий Глазков"
                       className="object-cover"
                   />
@@ -495,10 +439,20 @@ function App() {
           </div>
         </section>
 
-        <section id="details" className="flex w-full h-full justify-center items-center px-4">
-          <h1 className="text-3xl font-foglihten text-custom-dark-green-500 text-center">
+        <section
+            id="details"
+            className="relative flex w-full h-full justify-between items-center"
+        >
+          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+                          bg-[url('/image/bg-list.webp')] scale-x-[-1] rotate-180">
+          </div>
+          <h1 className="absolute flex justify-center w-full h-full text-3xl font-foglihten
+                         text-custom-dark-green-500 items-center text-center">
             Детали
           </h1>
+          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+                          bg-[url('/image/bg-list.webp')] rotate-180">
+          </div>
         </section>
 
         <section className="flex flex-col w-full h-full items-center px-4 py-10 bg-custom-green-100">
@@ -511,22 +465,41 @@ function App() {
           <Details/>
         </section>
 
-        <section id="location" className="flex w-full h-full justify-center items-center px-4">
-          <h1 className="text-3xl font-foglihten text-custom-dark-green-500 text-center">
+        <section
+            id="location"
+            className="relative flex w-full h-full justify-between items-center"
+        >
+          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+                          bg-[url('/image/bg-list.webp')]">
+          </div>
+          <h1 className="absolute flex justify-center w-full h-full text-3xl font-foglihten
+                         text-custom-dark-green-500 items-center text-center">
             Место<br/>
             Проведения
           </h1>
+          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+                          bg-[url('/image/bg-list.webp')] scale-x-[-1]">
+          </div>
         </section>
 
         <section className="flex flex-col w-full h-full items-center p-4 bg-custom-green-100">
           <MapSection/>
         </section>
 
-        <section className="flex w-full h-full justify-center items-center px-4">
-          <h1 className="text-3xl font-foglihten text-custom-dark-green-500 text-center">
+        <section
+            className="relative flex w-full h-full justify-between items-center"
+        >
+          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+                          bg-[url('/image/bg-list.webp')] scale-x-[-1] rotate-180">
+          </div>
+          <h1 className="absolute flex justify-center w-full h-full text-3xl font-foglihten
+                         text-custom-dark-green-500 items-center text-center">
             Анкета<br/>
             Гостя
           </h1>
+          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+                          bg-[url('/image/bg-list.webp')] rotate-180">
+          </div>
         </section>
 
         <section className="flex flex-col w-full h-full items-center p-4 py-10 bg-custom-green-100">
@@ -541,18 +514,39 @@ function App() {
           <Form/>
         </section>
 
-        <section className="flex w-full h-full justify-center items-center px-4">
-          <h1 className="text-3xl font-foglihten text-black text-center">
-            Увидимся с Вами через
-          </h1>
+        <section
+            className="relative flex w-full min-h-[25rem] h-full justify-between items-center"
+        >
+          <div className="hidden md:block max-w-[17rem] w-full h-full min-h-[28rem] bg-cover bg-right bg-no-repeat
+                          bg-[url('/image/left.webp')] z-10 absolute top-[-12%] left-0">
+          </div>
+
+          <div className="absolute flex justify-center w-full h-full items-start">
+            <h1 className="max-w-72 md:max-w-96 w-full text-3xl font-foglihten
+                           text-black text-center m-8">
+              Увидимся с Вами через
+            </h1>
+          </div>
+          <div className="absolute flex justify-center items-end w-full h-full">
+            <div className="p-4">
+              <a
+                  href="https://vk.com/evgesha_studio?from=groups"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-custom-green-700 text-base font-bold"
+              >
+                autor by "Evgesha"
+              </a>
+            </div>
+          </div>
+          <div className="absolute flex justify-center items-center w-full h-full">
+            <CountdownTimer deadlineUTC={new Date('2025-07-04T15:00:00Z')} />
+          </div>
+
+          <div className="hidden md:block max-w-[17rem] w-full h-full min-h-[28rem] bg-cover bg-right bg-no-repeat
+                          bg-[url('/image/right.webp')] z-10 absolute top-[-12%] right-0">
+          </div>
         </section>
-
-        <div className="flex items-center justify-center m-8 antialiased md:subpixel-antialiased">
-          <p className="text-custom-green-700 text-base font-bold">
-            autor by "Evgesha"
-          </p>
-        </div>
-
       </main>
   );
 }
