@@ -31,7 +31,7 @@ export default function WeddingTimeline() {
                 {/* Левая часть */}
                 <div
                     className="flex flex-col items-center md:flex-row w-full mb-16"
-                    data-aos="fade-right"
+                    data-aos="fade-up"
                     data-aos-delay="100"
                 >
                     <div className="w-full md:w-1/2 flex flex-col justify-end md:flex-row items-center md:pr-16 mb-4 md:m-auto">
@@ -53,7 +53,7 @@ export default function WeddingTimeline() {
                 {/* Правая часть */}
                 <div
                     className="flex flex-col items-center md:flex-row w-full mb-8"
-                    data-aos="fade-left"
+                    data-aos="fade-up"
                     data-aos-delay="200"
                 >
                     <div className="w-full md:w-1/2 flex flex-col justify-end md:flex-row items-center md:pr-16 mb-4 md:m-auto">
