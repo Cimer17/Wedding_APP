@@ -1,42 +1,21 @@
-import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default function WeddingTimeline() {
-    const [isMobile, setIsMobile] = useState(false);
 
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-
-        // Инициализируем AOS
+    // Инициализируем AOS
         AOS.init({
             duration: 800,
             easing: 'ease-in-out',
-            once: true,
+            once: false,
             offset: 100,
         });
 
-        // Проверяем, мобильное ли устройство
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-
-        return () => {
-            window.removeEventListener('resize', checkMobile);
-        };
-    }, []);
-
-    const getAnimation = () => {
-        return isMobile ? 'fade-up' : 'fade-right';
-    };
-
-    const getAnimationRight = () => {
-        return isMobile ? 'fade-up' : 'fade-left';
-    };
-
     return (
-        <div className="max-w-screen-lg mx-auto my-16 relative" data-aos="fade-up">
+        <div
+            className="max-w-screen-lg mx-auto my-16 relative"
+            data-aos="fade-up"
+        >
             {/* Вертикальная линия по центру */}
             <div className="hidden md:flex items-center absolute left-1/2 top-0 bottom-0 w-4 rounded-lg">
                 <img
@@ -52,7 +31,7 @@ export default function WeddingTimeline() {
                 {/* Левая часть */}
                 <div
                     className="flex flex-col items-center md:flex-row w-full mb-16"
-                    data-aos={getAnimation()}
+                    data-aos="fade-right"
                     data-aos-delay="100"
                 >
                     <div className="w-full md:w-1/2 flex flex-col justify-end md:flex-row items-center md:pr-16 mb-4 md:m-auto">
@@ -74,7 +53,7 @@ export default function WeddingTimeline() {
                 {/* Правая часть */}
                 <div
                     className="flex flex-col items-center md:flex-row w-full mb-8"
-                    data-aos={getAnimationRight()}
+                    data-aos="fade-left"
                     data-aos-delay="200"
                 >
                     <div className="w-full md:w-1/2 flex flex-col justify-end md:flex-row items-center md:pr-16 mb-4 md:m-auto">
