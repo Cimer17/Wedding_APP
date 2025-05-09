@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
 
     const toggleMenu = () => {
         setIsMenuOpen((prev) => !prev);
@@ -14,7 +15,13 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleOutsideClick = (event: MouseEvent | TouchEvent) => {
-            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+            const target = event.target as Node;
+            if (
+                menuRef.current &&
+                !menuRef.current.contains(target) &&
+                buttonRef.current &&
+                !buttonRef.current.contains(target)
+            ) {
                 setIsMenuOpen(false);
             }
         };
@@ -42,6 +49,7 @@ const Navbar = () => {
 
             <div className="md:hidden">
                 <button
+                    ref={buttonRef}
                     onClick={toggleMenu}
                     type="button"
                     className="inline-flex items-center p-2 text-sm text-black rounded-lg

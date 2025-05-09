@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios, { isAxiosError } from 'axios';
 import Alert from '../components/Alert';
 import PhoneInput from "../components/PhoneInput";
+import TelegramConfirmationModal from "../components/TelegramConfirmationModal";
 
 function Form(){
 
@@ -29,6 +30,7 @@ function Form(){
     });
     const [areRequiredFieldsFilled, setAreRequiredFieldsFilled] = useState(false);
     const [isChecking, setIsChecking] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
 
     // Обертка с задержкой для отправки уведомлений
     const alertMassagePromise = async (massages: string, types: AlertType): Promise<void> => {
@@ -148,16 +150,20 @@ function Form(){
     // Обработчик для кнопки Отправить
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setIsChecking(false);
 
         if (!validateForm())
             return;
 
+        // Блокирока кнопки отправить, начало анимации
+        setIsChecking(true);
+
+        // Проверка/отправка данных
         try {
             const isAvailable = await checkPhoneNumber(formData.phone);
 
             if (!isAvailable) {
                 alertMassagePromise('Гость с такими данными уже есть в списке', 'error');
+                setIsChecking(false);
                 return;
             }
 
@@ -172,7 +178,11 @@ function Form(){
                     }
                 });
 
-            alertMassagePromise("Форма успешно отправлена!", "success");
+            // Разблокировка кнопки, прекращение анимации
+            setIsChecking(false);
+
+            // Форма успешно отправлена
+            setModalOpen(true);
         } catch (error) {
             if (isAxiosError(error)) {
                 alertMassagePromise(
@@ -182,9 +192,8 @@ function Form(){
             } else {
                 alertMassagePromise("Произошла ошибка при отправке формы", "error");
             }
+            setIsChecking(false);
         }
-
-        setIsChecking(true);
     };
 
   return(
@@ -342,7 +351,7 @@ function Form(){
                         {/* Выбор алкоголя */}
                         {formData.willDrink && (
                             <div className="flex flex-col w-full mb-6">
-                                {['Шампанское', 'Брют', 'Полусладкое', 'Виски',
+                                {['Брют (Шампанское)', 'Полусладкое (Шампанское)', 'Виски',
                                     'Красное вино', 'Белое вино', 'Водка', 'Коньяк'].map((item) => (
                                     <div key={item} className="flex items-center mb-2">
                                         <input
@@ -435,6 +444,7 @@ function Form(){
                   onClose={() => setAlertMessage(null)}
               />
           )}
+          <TelegramConfirmationModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
       </>
   );
 }

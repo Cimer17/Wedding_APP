@@ -54,10 +54,6 @@ function App() {
                 С любовью, Вадим и Елена
               </p>
           </div>
-          {/*<div className="mt-6 text-center text-lg font-zen text-white">*/}
-          {/*  Мы будем рады видеть вас<br/>*/}
-          {/*  в кругу наших гостей!*/}
-          {/*</div>*/}
         </section>
 
         <section className="flex w-full justify-center items-center">
@@ -153,14 +149,14 @@ function App() {
             id="dresscode"
             className="relative flex w-full h-full justify-between items-center"
         >
-          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+          <div className="max-w-3xl w-1/2 h-full min-h-custom-15 md:min-h-[20rem] bg-cover bg-right bg-no-repeat
                           bg-[url('/image/bg-list.webp')] scale-x-[-1] rotate-180">
           </div>
           <h1 className="absolute flex justify-center w-full h-full text-3xl font-foglihten
                          text-custom-dark-green-500 items-center text-center">
             Дресс-код
           </h1>
-          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+          <div className="max-w-3xl w-1/2 h-full min-h-custom-15 md:min-h-[20rem] bg-cover bg-right bg-no-repeat
                           bg-[url('/image/bg-list.webp')] rotate-180">
           </div>
         </section>
@@ -358,7 +354,7 @@ function App() {
             id="presenter"
             className="relative flex w-full h-full justify-between items-center"
         >
-          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+          <div className="max-w-3xl w-1/2 h-full min-h-custom-15 md:min-h-[20rem] bg-cover bg-right bg-no-repeat
                           bg-[url('/image/bg-list.webp')]">
           </div>
           <h1 className="absolute flex justify-center w-full h-full text-3xl font-foglihten
@@ -366,15 +362,16 @@ function App() {
             Ведущий<br/>
             Мероприятия
           </h1>
-          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+          <div className="max-w-3xl w-1/2 h-full min-h-custom-15 md:min-h-[20rem] bg-cover bg-right bg-no-repeat
                           bg-[url('/image/bg-list.webp')] scale-x-[-1]">
           </div>
         </section>
 
-        <section className="flex w-full h-full justify-center items-center bg-[#E5E6E1]">
-          <div className="flex w-full h-full max-w-screen-lg">
-            <div className="flex w-1/12 h-full bg-custom-green-100 self-stretch"></div>
-            <div className="flex flex-col w-full mx-auto h-full p-4 md:flex-row items-center
+        <section className="relative flex w-full h-full justify-center items-center bg-[#E5E6E1]">
+          <div className="relative flex w-full h-full max-w-screen-lg">
+            <div className="hidden md:flex w-1/12" />
+            <div className="hidden md:flex w-1/12 h-full bg-custom-green-100 self-stretch absolute top-0 left-0" />
+            <div className="flex flex-col w-full mx-auto h-full p-4 md:px-5 md:py-4 md:flex-row items-center
                             gap-8 md:gap-1 my-10"
             >
               <div className="w-full md:pr-5">
@@ -443,14 +440,14 @@ function App() {
             id="details"
             className="relative flex w-full h-full justify-between items-center"
         >
-          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+          <div className="max-w-3xl w-1/2 h-full min-h-custom-15 md:min-h-[20rem] bg-cover bg-right bg-no-repeat
                           bg-[url('/image/bg-list.webp')] scale-x-[-1] rotate-180">
           </div>
           <h1 className="absolute flex justify-center w-full h-full text-3xl font-foglihten
                          text-custom-dark-green-500 items-center text-center">
             Детали
           </h1>
-          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+          <div className="max-w-3xl w-1/2 h-full min-h-custom-15 md:min-h-[20rem] bg-cover bg-right bg-no-repeat
                           bg-[url('/image/bg-list.webp')] rotate-180">
           </div>
         </section>
@@ -469,7 +466,7 @@ function App() {
             id="location"
             className="relative flex w-full h-full justify-between items-center"
         >
-          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+          <div className="max-w-3xl w-1/2 h-full min-h-custom-15 md:min-h-[20rem] bg-cover bg-right bg-no-repeat
                           bg-[url('/image/bg-list.webp')]">
           </div>
           <h1 className="absolute flex justify-center w-full h-full text-3xl font-foglihten
@@ -477,7 +474,7 @@ function App() {
             Место<br/>
             Проведения
           </h1>
-          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+          <div className="max-w-3xl w-1/2 h-full min-h-custom-15 md:min-h-[20rem] bg-cover bg-right bg-no-repeat
                           bg-[url('/image/bg-list.webp')] scale-x-[-1]">
           </div>
         </section>
@@ -489,7 +486,7 @@ function App() {
         <section
             className="relative flex w-full h-full justify-between items-center"
         >
-          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+          <div className="max-w-3xl w-1/2 h-full min-h-custom-15 md:min-h-[20rem] bg-cover bg-right bg-no-repeat
                           bg-[url('/image/bg-list.webp')] scale-x-[-1] rotate-180">
           </div>
           <h1 className="absolute flex justify-center w-full h-full text-3xl font-foglihten
@@ -497,7 +494,7 @@ function App() {
             Анкета<br/>
             Гостя
           </h1>
-          <div className="max-w-3xl w-1/2 h-full min-h-[20rem] bg-cover bg-right bg-no-repeat
+          <div className="max-w-3xl w-1/2 h-full min-h-custom-15 md:min-h-[20rem] bg-cover bg-right bg-no-repeat
                           bg-[url('/image/bg-list.webp')] rotate-180">
           </div>
         </section>
@@ -528,7 +525,7 @@ function App() {
             </h1>
           </div>
           <div className="absolute flex justify-center items-end w-full h-full">
-            <div className="p-4">
+            <div className="p-8 z-10">
               <a
                   href="https://vk.com/evgesha_studio?from=groups"
                   target="_blank"
