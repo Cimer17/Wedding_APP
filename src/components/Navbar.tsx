@@ -90,7 +90,7 @@ const Navbar = () => {
             {/* Мобильная версия */}
             <div
                 ref={menuRef}
-                className={`absolute top-full left-2 right-2 z-10 mt-2 shadow-xl rounded-xl 
+                className={`absolute top-full left-2 right-2 z-40 mt-2 shadow-xl rounded-xl 
                             bg-[#E5E6E1] transition-all duration-300 overflow-hidden ${
                     isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                 }`}
