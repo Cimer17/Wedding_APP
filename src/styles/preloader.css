@@ -1,0 +1,33 @@
+.heart-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 20px);
+    grid-template-rows: repeat(5, 20px);
+    gap: 4px;
+}
+
+.cell {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.pulse {
+    background-color: #e11d48;
+    animation: pulse 1.2s infinite ease-in-out;
+    transform-origin: center;
+}
+
+.empty {
+    background-color: transparent;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
