@@ -63,6 +63,8 @@ function Form(){
             .replace(/\s+/g, ' ')
             .trim();
 
+        const cleanedAlcohol = formData.alcohol.map(item => item.trim()).filter(item => item !== '');
+
         return {
             presence: formData.presence,
             full_name: cleanedName,
@@ -71,8 +73,8 @@ function Form(){
             guests: formData.guests
                 .map(guest => guest.trim())
                 .filter(guest => guest !== ''),
-            willDrink: formData.willDrink,
-            drink: formData.alcohol,
+            willDrink: cleanedAlcohol.length > 0,
+            drink: cleanedAlcohol,
         };
     };
 
