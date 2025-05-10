@@ -15,7 +15,7 @@ export default function Details() {
             {description.map((descriptions, index) => (
                 <div
                     key={descriptions.text1}
-                    className="flex w-full h-full max-h-96 items-center justify-center gap-6"
+                    className="flex w-full h-full max-h-max items-center justify-center gap-6"
                     data-aos="fade-up"
                     data-aos-delay={index * 100} // Постепенное появление
                 >

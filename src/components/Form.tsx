@@ -235,31 +235,36 @@ function Form(){
 
                     {/* Подтверждение присутствия */}
                     <div className="flex items-center mb-6 px-4">
-                        <label className="w-full inline-flex justify-between items-center cursor-pointer">
-                                      <span>
-                                          <h3 className="text-lg font-medium text-gray-900">
-                                              Я подтверждаю свое присутствие
-                                          </h3>
-                                      </span>
-                            <input
-                                type="checkbox"
-                                className="sr-only peer"
-                                checked={formData.presence}
-                                onChange={handlePresenceChange}
-                            />
-                            <div className="relative w-11 h-6 bg-gray-200 rounded-full peer
-                                          peer-checked:after:translate-x-full
-                                          after:content-[''] after:absolute after:top-[2px] after:start-[2px]
-                                          after:bg-white after:border-gray-300 after:border after:rounded-full
-                                          after:h-5 after:w-5 after:transition-all
-                                          peer-checked:bg-custom-green-500"/>
-                        </label>
+                        <div className="w-full grid grid-cols-12 gap-4">
+                            <div className="col-span-10">
+                                <h3 className="text-lg font-medium text-gray-900">
+                                    Я подтверждаю свое присутствие
+                                </h3>
+                            </div>
+                            <div className="col-span-2 flex justify-end">
+                                <label className="inline-flex items-center cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        className="sr-only peer"
+                                        checked={formData.presence}
+                                        onChange={handlePresenceChange}
+                                    />
+                                    <div className="relative w-11 h-6 bg-gray-200 rounded-full peer
+                                                  peer-checked:after:translate-x-full
+                                                  after:content-[''] after:absolute after:top-[2px] after:start-[2px]
+                                                  after:bg-white after:border-gray-300 after:border after:rounded-full
+                                                  after:h-5 after:w-5 after:transition-all
+                                                  peer-checked:bg-custom-green-500"
+                                    />
+                                </label>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Скрытые поля, появляются при активации presence */}
                     <div
                         className={`transition-all duration-300 ease-in-out overflow-hidden px-4 ${
-                            formData.presence ? 'opacity-100 max-h-screen' : 'opacity-0 max-h-0'
+                            formData.presence ? 'opacity-100 max-h-max' : 'opacity-0 max-h-0'
                         }`}
                     >
                         {/* Гости */}
