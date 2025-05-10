@@ -287,8 +287,13 @@ function Form(){
                                             className="sr-only peer"
                                             checked={formData.guestsAllowed}
                                             onChange={(e) =>
-                                                setFormData({...formData, guestsAllowed: e.target.checked})
+                                                setFormData({
+                                                    ...formData,
+                                                    guestsAllowed: e.target.checked,
+                                                    guests: e.target.checked ? formData.guests : []
+                                                })
                                             }
+
                                         />
                                         <div className="relative w-11 h-6 bg-gray-200 rounded-full peer
                                               peer-checked:after:translate-x-full
