@@ -64,15 +64,14 @@ function Form(){
             .trim();
 
         const cleanedAlcohol = formData.alcohol.map(item => item.trim()).filter(item => item !== '');
+        const cleanedGuests = formData.guests.map(guest => guest.trim()).filter(guest => guest !== '');
 
         return {
             presence: formData.presence,
             full_name: cleanedName,
             phone: formData.phone.replace(/\D/g, ''),
-            guestsAllowed: formData.guestsAllowed,
-            guests: formData.guests
-                .map(guest => guest.trim())
-                .filter(guest => guest !== ''),
+            guestsAllowed: cleanedGuests.length > 0,
+            guests: cleanedGuests,
             willDrink: cleanedAlcohol.length > 0,
             drink: cleanedAlcohol,
         };
@@ -98,7 +97,20 @@ function Form(){
             return;
         }
 
-        setFormData({ ...formData, presence: isChecked });
+        if (!isChecked) {
+            setFormData((prev) => ({
+                ...prev,
+                presence: false,
+                guestsAllowed: false,
+                guests: [],
+                willDrink: false,
+                alcohol: [],
+                oath: false,
+            }));
+        } else {
+            setFormData((prev) =>
+                ({ ...prev, presence: true }));
+        }
     };
 
     // Обработчик кнопки гостей
