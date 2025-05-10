@@ -15,7 +15,7 @@ function Form(){
         phone: string;
         guestsAllowed: boolean,
         guests: string[];
-        willDrink: boolean;
+        willDring: boolean;
         alcohol: string[];
         oath: boolean;
     }>({
@@ -24,7 +24,7 @@ function Form(){
         phone: '',
         guestsAllowed: false,
         guests: [],
-        willDrink: false,
+        willDring: false,
         alcohol: [],
         oath: false,
     });
@@ -72,7 +72,7 @@ function Form(){
             phone: formData.phone.replace(/\D/g, ''),
             guestsAllowed: cleanedGuests.length > 0,
             guests: cleanedGuests,
-            willDrink: cleanedAlcohol.length > 0,
+            willDring: cleanedAlcohol.length > 0,
             drink: cleanedAlcohol,
         };
     };
@@ -103,7 +103,7 @@ function Form(){
                 presence: false,
                 guestsAllowed: false,
                 guests: [],
-                willDrink: false,
+                willDring: false,
                 alcohol: [],
                 oath: false,
             }));
@@ -356,11 +356,11 @@ function Form(){
                                         <input
                                             type="checkbox"
                                             className="sr-only peer"
-                                            checked={formData.willDrink}
+                                            checked={formData.willDring}
                                             onChange={(e) =>
                                                 setFormData({
                                                     ...formData,
-                                                    willDrink: e.target.checked,
+                                                    willDring: e.target.checked,
                                                     alcohol: e.target.checked ? formData.alcohol : []
                                                 })
                                             }
@@ -377,7 +377,7 @@ function Form(){
                         </div>
 
                         {/* Выбор алкоголя */}
-                        {formData.willDrink && (
+                        {formData.willDring && (
                             <div className="flex flex-col w-full mb-6">
                                 {['Брют (Шампанское)', 'Полусладкое (Шампанское)', 'Виски',
                                     'Красное вино', 'Белое вино', 'Водка', 'Коньяк'].map((item) => (
