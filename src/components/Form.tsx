@@ -346,7 +346,11 @@ function Form(){
                                             className="sr-only peer"
                                             checked={formData.willDrink}
                                             onChange={(e) =>
-                                                setFormData({...formData, willDrink: e.target.checked})
+                                                setFormData({
+                                                    ...formData,
+                                                    willDrink: e.target.checked,
+                                                    alcohol: e.target.checked ? formData.alcohol : []
+                                                })
                                             }
                                         />
                                         <div className="relative w-11 h-6 bg-gray-200 rounded-full peer
